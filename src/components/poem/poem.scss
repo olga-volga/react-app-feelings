@@ -1,0 +1,40 @@
+@import '../../style/variables.scss';
+
+.poem {
+    background-image: url('../../img/bg_paper.jpg');
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 50px 0 100px;
+
+    &__body {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    &__results {
+        font-size: 40px;
+		line-height: 42px;
+        text-align: center;
+        color: $bg;
+    }
+    &__title {
+        font-size: 60px;
+		line-height: 60px;
+		text-transform: capitalize;
+        color: $bg;
+        margin-top: 42px;
+    }
+    &__author {
+        font-size: 34px;
+		line-height: 46px;
+        font-style: italic;
+        color: $bg;
+        margin-top: 20px;
+    }
+    &__lines {
+        font-size: 26px;
+		line-height: 38px;
+        color: $bg;
+        margin-top: 40px;
+    }
+}
