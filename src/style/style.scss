@@ -1,0 +1,73 @@
+@import './nullstyles.scss';
+@import './variables.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+/*font-family: 'Roboto', sans-serif;*/
+
+
+
+.container {
+	padding: 0 60px;
+
+	@media (max-width: $md4) {
+		padding: 0 30px;
+	}
+	@media (max-width: $md6) {
+		padding: 0 20px;
+	}
+}
+.form {
+	display: flex;
+	align-items: center;
+
+	&__input {
+		width: calc(100% - 36px);
+		background-color: rgba($light, 1);
+		font-family: $font-second;
+		font-weight: 400;
+		font-size: 16px;
+		border-radius: 5px;
+		padding: 5px 10px;
+
+		&_main {
+			width: 100%;
+			background-color: rgba($light, 0.8);
+			font-size: 22px;
+			padding: 7px 13px;
+		}
+	}
+	&__button_header {
+		width: 26px;
+		height: 26px;
+		background-color: transparent;
+		background-image: url('../img/loupe.png');
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		vertical-align: top;
+		cursor: pointer;
+		margin-left: 10px;
+	}
+	&__button_main {
+		background-color: transparent;
+		font-family: $font-second;
+		font-weight: 500;
+		font-size: 18px;
+		text-transform: uppercase;
+		color: $light;
+		text-shadow: 2px 2px 4px $dark;
+		padding: 5px;
+		margin-left: 15px;
+	}
+}
+@media (max-width: $md6) {
+	.form {
+		&_main {
+			flex-direction: column;
+		}
+		&__button_main {
+			padding: 10px;
+			margin-left: 0;
+			margin-top: 10px;
+		}
+	}
+}
