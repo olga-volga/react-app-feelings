@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-//import {getResource} from '../../services/requestService';
 import requestService from '../../services/requestService';
 
 import './form.scss';
