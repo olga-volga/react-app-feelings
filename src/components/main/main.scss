@@ -1,0 +1,94 @@
+@import '../../style/variables.scss';
+
+.main {
+	background-image: url('../../img/bg.jpg');
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 50px 0 100px;
+
+	&__title {
+		font-size: 76px;
+		line-height: 86px;
+		text-transform: capitalize;
+		text-align: center;
+		color: $light;
+		text-shadow: 2px 2px 4px $dark;
+		transform: translateX(-100%);
+		opacity: 0;
+		animation-name: moveToRight;
+  		animation-duration: 4s;
+  		animation-fill-mode: forwards;
+	}
+	@keyframes moveToRight {
+		from {opacity: 0;transform:translateX(-100%);}
+		to {opacity: 1;transform:translateX(0);}
+	}
+	&__block {
+		max-width: 840px;
+		display: flex;
+		justify-content: flex-end;
+		margin: 0 auto;
+	}
+	&__subtitle,
+	&__text {
+		font-family: $font-second;
+		font-weight: 500;
+		font-size: 36px;
+		line-height: 48px;
+		text-align: center;
+		color: $light;
+		text-shadow: 2px 2px 4px $dark;
+		margin-top: 30px;
+		transform: translateX(100%);
+		opacity: 0;
+		animation-name: moveToLeft;
+  		animation-duration: 4s;
+  		animation-delay: 1.5s;
+  		animation-fill-mode: forwards;
+	}
+	@keyframes moveToLeft {
+		from {opacity: 0;transform:translateX(100%);}
+		to {opacity: 1;transform:translateX(0);}
+	}
+	&__text {
+		transform: translateX(-100%);
+		animation-name: moveToRight;
+  		animation-duration: 4s;
+  		animation-delay: 4s;
+  		margin-top: 40px;
+	}
+	&__form {
+		width: 600px;
+		margin: 40px auto 0;
+	}
+}
+
+@media (max-width: $md3) {
+	.main {
+		&__block {
+			display: block;
+		}
+	}
+}
+@media (max-width: $md5) {
+	.main {
+		&__form {
+			width: 100%;
+		}
+		&__title {
+			font-size: 60px;
+			line-height: 70px;
+		}
+		&__subtitle,
+		&__text {
+			font-size: 30px;
+			line-height: 40px;
+		}
+		&__subtitle {
+			br {
+				display: none;
+			}
+		}
+	}
+}
