@@ -2,7 +2,7 @@ import Form from '../form/Form';
 
 import './header.scss';
 
-const Header = () => {
+const Header = ({updateWord}) => {
     return (
         <header className="header">
 			<div className="container">
@@ -10,7 +10,7 @@ const Header = () => {
 					<a href="#" className="header__logo">I have been here before</a>
 					<div className="header__block">
 						<div className="header__form">
-                            <Form btnClass="form__button_header" />
+                            <Form updateWord={updateWord} btnClass="form__button_header" />
 						</div>
 						<div className="header__burger">
 							<span></span>

@@ -1,8 +1,8 @@
 import Main from '../main/Main';
 
-const MainPage = () => {
+const MainPage = ({updateWord}) => {
     return ( 
-        <Main />
+        <Main updateWord={updateWord} />
     )
 }
 

@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
-
-import requestService from '../../services/requestService';
+import { useHistory } from 'react-router-dom';
 
 import './form.scss';
 
-const Form = ({main, formClass, inputClass, btnClass}) => {
+const Form = ({main, formClass, inputClass, btnClass, updateWord}) => {
     const [input, setInput] = useState('');
-    const [data, setData] = useState(null);
 
-    const {getPoem} = requestService();
+    let history = useHistory();
 
     const submitForm = (e) => {
         e.preventDefault();
-        updateFeeling(input);
-    };
-    const updateFeeling = (feeling) => {
-        getPoem(feeling)
-            .then(res => console.log(res))
+        updateWord(input);
+        if (input) {
+            history.push("/poem");
+        }
     };
 
     let btnText = main ? 'Search' : null;
@@ -25,10 +22,11 @@ const Form = ({main, formClass, inputClass, btnClass}) => {
 			<input 
                 type="text" 
                 name="feeling" 
+                value={input}
                 placeholder="How are you feeling?" 
                 className={`form__input ${inputClass}`}
                 onChange={(e) => setInput(e.currentTarget.value)} />
-			<button type="submit" className={btnClass}>{btnText}</button>
+			<button type="submit" disabled={input === ''} className={btnClass}>{btnText}</button>
 		</form>
     )
 }

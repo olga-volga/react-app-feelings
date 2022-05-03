@@ -1,8 +1,8 @@
 import Poem from '../poem/Poem';
 
-const PoemPage = () => {
+const PoemPage = ({word}) => {
     return (
-        <Poem />
+        <Poem word={word} />
     )
 }
 

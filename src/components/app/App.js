@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from '../header/Header';
@@ -7,16 +8,21 @@ import PoemPage from '../pages/PoemPage';
 import './app.scss';
 
 const App = () => {
+    const [word, setWord] = useState('');
+
+    const updateWord = (word) => {
+        setWord(word);
+    };
     return (
         <Router>
             <div className="app">
-                <Header />
+                <Header updateWord={updateWord} />
                 <Switch>
                     <Route exact path="/">
-                        <MainPage />
+                        <MainPage updateWord={updateWord} />
                     </Route>
                     <Route exact path="/poem">
-                        <PoemPage />
+                        <PoemPage word={word} />
                     </Route>
                 </Switch>
             </div>

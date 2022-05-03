@@ -2,7 +2,7 @@ import Form from '../form/Form';
 
 import './main.scss';
 
-const Main = () => {
+const Main = ({updateWord}) => {
     return (
         <section className="main">
 			<div className="container">
@@ -13,7 +13,7 @@ const Main = () => {
 					</div>
 					<p className="main__text">Type in a few words to describe what you are feeling</p>
 					<div className="main__form">
-                        <Form main={true} formClass="form_main" inputClass="form__input_main" btnClass="form__button_main" />
+                        <Form main={true} formClass="form_main" inputClass="form__input_main" btnClass="form__button_main" updateWord={updateWord} />
 					</div>
 				</div>
 			</div>
