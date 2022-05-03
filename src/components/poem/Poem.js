@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 import './poem.scss';
 
 const Poem = () => {
@@ -5,7 +7,7 @@ const Poem = () => {
         <section className="poem">
             <div className="container">
                 <div className="poem__body">
-                    <p className="poem__results">Results for 'Hope'</p>
+                    <p className="poem__results">Results for &lsquo;Hope&rsquo;</p>
                     <h2 className="poem__title">Say not the struggle nought availeth</h2>
                     <p className="poem__author">by Arthur Hugh Clough</p>
                     <p className="poem__lines">
@@ -13,6 +15,7 @@ const Poem = () => {
                         With long and measured swell,<br />
                     </p>
                 </div>
+                <Link to="/" className="poem__back">&larr; Back</Link>
             </div>
         </section>
     )
