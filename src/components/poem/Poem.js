@@ -30,16 +30,17 @@ const Poem = ({word}) => {
 
 const View = ({word, data}) => {
     const {author, title, lines} = data;
+    const poemLines = lines.map((item, i) => {
+        return i % 2 === 1 ? `       ${item}\n` : `${item}\n`;
+    });
     return (
         <div className="poem__body">
             <p className="poem__results">Results for &lsquo;{word}&rsquo;</p>
             <h2 className="poem__title">{title}</h2>
             <p className="poem__author">by {author}</p>
-            <p className="poem__lines">
-                {lines}
-                {/*The ocean heaves around us still,<br />
-                        With long and measured swell,<br />*/}
-            </p>
+            <pre className="poem__lines">
+                {poemLines}
+            </pre>
         </div>
     )
 }
