@@ -2,25 +2,46 @@ import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
 import requestService from "../../services/requestService";
+import Spinner from '../spinner/Spinner';
+import Error from '../error/Error';
 
 import './poem.scss';
 
 const Poem = ({word}) => {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const [data, setData] = useState(null);
+    
     const {getPoem} = requestService();
 
     useEffect(() => {
         updatePoem();
     }, [word]);
 
-    const updatePoem = () => {
-        getPoem(word)
-            .then(res => setData(res))
+    const onDataLoaded = (data) => {
+        setLoading(false);
+        setData(data);
     };
-    const content = data ? <View word={word} data={data} /> : null;
+    const onError = () => {
+        setError(true);
+        setLoading(false);
+    };
+    const updatePoem = () => {
+        setError(false);
+        setLoading(true);
+        
+        getPoem(word)
+            .then(onDataLoaded)
+            .catch(onError)
+    };
+    const spinner = loading ? <Spinner /> : null;
+    const errorMessage = error ? <Error /> : null;
+    const content = !(loading || error || !data) ? <View word={word} data={data} /> : null;
     return (
         <section className="poem">
             <div className="container">
+                {spinner}
+                {errorMessage}
                 {content}
                 <Link to="/" className="poem__back">&larr; Back</Link>
             </div>
