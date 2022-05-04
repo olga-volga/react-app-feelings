@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 import Form from '../form/Form';
 
 import './header.scss';
@@ -7,7 +9,7 @@ const Header = ({updateWord}) => {
         <header className="header">
 			<div className="container">
 				<div className="header__body">
-					<a href="#" className="header__logo">I have been here before</a>
+					<Link to="/" className="header__logo">I have been here before</Link>
 					<div className="header__block">
 						<div className="header__form">
                             <Form updateWord={updateWord} btnClass="form__button_header" />
