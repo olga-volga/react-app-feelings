@@ -9,7 +9,15 @@
     &__body {
         max-width: 600px;
         margin: 0 auto;
+        opacity: 0;
+		animation-name: fadeIn;
+  		animation-duration: 2s;
+  		animation-fill-mode: forwards;
     }
+    @keyframes fadeIn {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	}
     &__results {
         font-size: 40px;
 		line-height: 42px;

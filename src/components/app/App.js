@@ -17,14 +17,16 @@ const App = () => {
         <Router>
             <div className="app">
                 <Header updateWord={updateWord} />
-                <Switch>
-                    <Route exact path="/">
-                        <MainPage updateWord={updateWord} />
-                    </Route>
-                    <Route exact path="/poem">
-                        <PoemPage word={word} />
-                    </Route>
-                </Switch>
+                <main>
+                    <Switch>
+                        <Route exact path="/">
+                            <MainPage updateWord={updateWord} />
+                        </Route>
+                        <Route exact path="/poem">
+                            <PoemPage word={word} />
+                        </Route>
+                    </Switch>
+                </main>
             </div>
         </Router>
     )
