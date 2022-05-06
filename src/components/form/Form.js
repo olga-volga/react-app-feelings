@@ -1,32 +1,36 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useFormik } from 'formik';
 
 import './form.scss';
 
 const Form = ({main, formClass, inputClass, btnClass, updateWord}) => {
-    const [input, setInput] = useState('');
-
     let history = useHistory();
 
-    const submitForm = (e) => {
-        e.preventDefault();
-        updateWord(input);
-        if (input) {
-            history.push("/poem");
+    const formik = useFormik({
+        initialValues: {
+            feeling: ''
+        },
+        onSubmit: (values, {resetForm}) => {
+            if (values.feeling) {
+                history.push("/poem");
+            }
+            updateWord(values.feeling);
+            resetForm();
         }
-    };
+    });
 
     let btnText = main ? 'Search' : null;
     return (
-        <form onSubmit={submitForm} action="#" className={`form ${formClass}`}>
+        <form onSubmit={formik.handleSubmit} action="#" className={`form ${formClass}`}>
 			<input 
                 type="text" 
                 name="feeling" 
-                value={input}
+                value={formik.values.feeling}
                 placeholder="How are you feeling?" 
                 className={`form__input ${inputClass}`}
-                onChange={(e) => setInput(e.currentTarget.value)} />
-			<button type="submit" disabled={input === ''} className={btnClass}>{btnText}</button>
+                onChange={formik.handleChange} />
+			<button type="submit" disabled={!formik.values.feeling} className={btnClass}>{btnText}</button>
 		</form>
     )
 }
