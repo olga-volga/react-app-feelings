@@ -2,7 +2,9 @@ import Poem from '../poem/Poem';
 
 const PoemPage = ({word}) => {
     return (
-        <Poem word={word} />
+        <div className="content">
+            <Poem word={word} />
+        </div>
     )
 }
 

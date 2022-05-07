@@ -21,5 +21,26 @@
 }
 
 main {
-	padding-top: 49px;
+	padding-top: 46px;
+	
+	@media (max-width: $md6) {
+		padding-top: 40px;
+	}
+}
+
+.content {
+    min-height: 100vh;
+    background-image: url('../img/bg_paper.jpg');
+	background-repeat: repeat;
+	padding: 50px 0 100px;
+}
+
+.link__back {
+    display: inline-block;
+    font-size: 26px;
+	line-height: 38px;
+    font-style: italic;
+    text-decoration: underline;
+    color: $bg;
+    margin-top: 30px;
 }

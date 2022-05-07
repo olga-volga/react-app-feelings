@@ -43,7 +43,7 @@ const Poem = ({word}) => {
                 {spinner}
                 {errorMessage}
                 {content}
-                <Link to="/" className="poem__back">&larr; Back</Link>
+                <Link to="/" className="link__back">&larr; Back</Link>
             </div>
         </section>
     )
