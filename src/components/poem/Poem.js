@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
 import requestService from "../../services/requestService";
-import Spinner from '../spinner/Spinner';
-import Error from '../error/Error';
+import generateContent from "../../utils/generateContent";
 
 import './poem.scss';
 
 const Poem = ({word}) => {
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [process, setProcess] = useState('waiting');
     const [data, setData] = useState(null);
     
     const {getPoem} = requestService();
@@ -19,30 +17,23 @@ const Poem = ({word}) => {
     }, [word]);
 
     const onDataLoaded = (data) => {
-        setLoading(false);
         setData(data);
     };
     const onError = () => {
-        setError(true);
-        setLoading(false);
+        setProcess('error');
     };
     const updatePoem = () => {
-        setError(false);
-        setLoading(true);
-        
+        setProcess('loading');
+
         getPoem(word)
             .then(onDataLoaded)
+            .then(() => setProcess('confirmed'))
             .catch(onError)
     };
-    const spinner = loading ? <Spinner /> : null;
-    const errorMessage = error ? <Error /> : null;
-    const content = !(loading || error || !data) ? <View word={word} data={data} /> : null;
     return (
         <section className="poem">
             <div className="container">
-                {spinner}
-                {errorMessage}
-                {content}
+                {generateContent(process, View, data, word)}
                 <Link to="/" className="link__back">&larr; Back</Link>
             </div>
         </section>
