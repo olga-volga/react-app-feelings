@@ -41,3 +41,26 @@
         margin-top: 40px;
     }
 }
+@media (max-width: $md5) {
+    .poem {
+        &__results {
+            font-size: 28px;
+            line-height: 34px;
+        }
+        &__title {
+            font-size: 44px;
+            line-height: 48px;
+            margin-top: 25px;
+        }
+        &__author {
+            font-size: 26px;
+            line-height: 36px;
+            margin-top: 10px;
+        }
+        &__lines {
+            font-size: 20px;
+            line-height: 30px;
+            margin-top: 30px;
+        }
+    }
+}
