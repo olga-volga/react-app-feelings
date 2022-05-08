@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# I Have Been Here Before
+**React App inspired by the ["Hope Gap" movie](https://www.imdb.com/title/tt7587876/?ref_=fn_al_tt_1) and based on [PoetryDB API](https://github.com/thundercomb/poetrydb)**
+
+**In this project I practiced:**
+* React
+* React Hooks
+* react-create-app
+* react-router
+* CSS Animations
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
