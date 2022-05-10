@@ -8,6 +8,15 @@
 * react-router
 * CSS Animations
 
+**Demo:**
+[Feelings React App](https://app-feelings.herokuapp.com/)
+
+**To run this project locally:**
+* clone with `https://github.com/olga-volga/react-app-feelings.git`
+* `cd feelings`
+* `npm install`
+* `npm start`
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
